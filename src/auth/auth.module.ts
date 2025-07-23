@@ -14,7 +14,7 @@ import { JwtStrategy } from "./strats/jwt.strategy";
         imports: [ConfigModule],
         useFactory: (configService: ConfigService) => {
         const secret = configService.get<string>('JWT_SECRET');
-        console.log('JWT_SECRET from config:', secret);  // add this line to debug
+        console.log('JWT_SECRET from config:', secret);  
         return {
             secret,
             signOptions: { expiresIn: configService.get<string>('JWT_EXPIRES_IN') }
